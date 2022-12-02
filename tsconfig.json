@@ -17,6 +17,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["types/**/*.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["types/**/*.d.ts", "next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/game.jsx"],
   "exclude": ["node_modules"]
 }

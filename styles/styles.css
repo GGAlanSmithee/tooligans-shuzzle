@@ -1,9 +1,37 @@
-html,
-body {
-  padding: 0;
+* {
   margin: 0;
+  padding: 0;
+  user-select: none;
+} /* to remove the top and left whitespace */
+
+html,
+body,
+#__next {
   height: 100vh;
-  overflow-y: auto;
+  overflow-x: hidden;
   background: rgb(245, 229, 163);
   background: linear-gradient(0deg, rgb(245, 229, 163) 0%, rgb(252, 247, 225) 100%);
+}
+a {
+  color: #2980b9;
+}
+
+a:link {
+  text-decoration: none;
+  color: #2980b9;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #2980b9;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #2980b9;
+}
+
+a:active {
+  text-decoration: none;
+  color: #2980b9;
 }
