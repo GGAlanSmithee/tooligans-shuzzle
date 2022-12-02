@@ -245,7 +245,7 @@ const Puzzle = ({ img, tiles, isSolved, onMove, isNew }) => {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Shuffle Puzzle Duel</title>
+        <title>Tooligans Shuffle</title>
         <meta name="description" content="A fun game of puzzle shuffle" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
