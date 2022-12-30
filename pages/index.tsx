@@ -1,9 +1,6 @@
-import { Game } from "components/Game"
-import { useCanvas } from "hooks/use-canvas"
-import { useHasNamiExtension } from "hooks/use-lucid/use-has-nami-extension"
-import { useLucid } from "hooks/use-lucid/use-lucid"
 import { useTooligans } from "hooks/use-tooligans"
 import { useRouter } from "next/router"
+import { CardanoWalletSelector, useCardano } from "use-cardano"
 import { v4 as uuid } from "uuid"
 
 import styles from "../styles/index.module.css"
@@ -11,29 +8,16 @@ import styles from "../styles/index.module.css"
 const Index = () => {
   const { push } = useRouter()
 
-  const hasNamiExtension = useHasNamiExtension()
-  const { lucid, networkId } = useLucid()
+  const { lucid, networkId } = useCardano()
+
   const tooligans = useTooligans(lucid, networkId)
-
-  // strict equals to avoid undefined
-  if (hasNamiExtension === false)
-    return (
-      <div className={styles.container}>
-        <div className={styles.left} />
-        <div>
-          <h1 className={styles.namiTitle}>
-            This game currently only works with the Nami extension installed.
-          </h1>
-        </div>
-        <div className={styles.right} />
-      </div>
-    )
-
-  // not initialized yet
-  if (!lucid) return null
 
   return (
     <>
+      <div className={styles.connectContainer}>
+        <CardanoWalletSelector />
+      </div>
+
       <a href="https://github.com/GGAlanSmithee/tooligans-shuzzle">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -54,11 +38,10 @@ const Index = () => {
         <div>
           <div className={styles.header}>
             <h1>Tooligans Shuzzle</h1>
-            <h2>
-              Choose your Tooligan to shuzzle with
-            </h2>
+            <h2>Choose your Tooligan to shuzzle with</h2>
             <small>
-              If some of your tooligans aren&apos;t loading, it&apos;s a problem with the Blockfrost IPFS node, please refresh your page.
+              If some of your tooligans aren&apos;t loading, it&apos;s a problem with the Blockfrost
+              IPFS node, please refresh your page.
             </small>
           </div>
 
